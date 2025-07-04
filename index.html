@@ -94,8 +94,16 @@
             filter: grayscale(0%);
         }
         
+        .quote-container {
+            position: relative;
+            height: 128px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
         .quote-rotate {
-            animation: rotateQuote 9s infinite;
             position: absolute;
             top: 0;
             left: 0;
@@ -105,6 +113,9 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+            animation: rotateQuote 12s infinite;
         }
         
         .quote-rotate:nth-child(1) {
@@ -112,17 +123,18 @@
         }
         
         .quote-rotate:nth-child(2) {
-            animation-delay: 3s;
+            animation-delay: 4s;
         }
         
         .quote-rotate:nth-child(3) {
-            animation-delay: 6s;
+            animation-delay: 8s;
         }
         
         @keyframes rotateQuote {
-            0%, 11% { opacity: 0; transform: translateY(20px); }
-            22%, 78% { opacity: 1; transform: translateY(0); }
-            89%, 100% { opacity: 0; transform: translateY(-20px); }
+            0%, 8.33% { opacity: 0; visibility: hidden; transform: translateY(20px); }
+            16.66%, 25% { opacity: 1; visibility: visible; transform: translateY(0); }
+            33.33%, 91.66% { opacity: 0; visibility: hidden; transform: translateY(-20px); }
+            100% { opacity: 0; visibility: hidden; transform: translateY(20px); }
         }
         
         .typewriter {
@@ -285,15 +297,15 @@
                     <div class="bg-gradient-to-br from-[#00ff9d]/10 to-[#00b8ff]/10 rounded-lg p-8 h-full flex items-center justify-center">
                         <div class="text-center">
                             <p class="text-2xl font-bold mb-4 gradient-text">AI Philosophy</p>
-                            <div class="relative h-32 overflow-hidden">
+                            <div class="quote-container">
                                 <div class="quote-rotate">
-                                    <p class="text-center px-4">"AI should lessen the load, not increase it."</p>
+                                    <p class="text-center px-4 text-lg">"AI should lessen the load, not increase it."</p>
                                 </div>
                                 <div class="quote-rotate">
-                                    <p class="text-center px-4">"Models are only as good as their real-world impact."</p>
+                                    <p class="text-center px-4 text-lg">"Models are only as good as their real-world impact."</p>
                                 </div>
                                 <div class="quote-rotate">
-                                    <p class="text-center px-4">"Ethics isn't a feature—it's foundational."</p>
+                                    <p class="text-center px-4 text-lg">"Ethics isn't a feature—it's foundational."</p>
                                 </div>
                             </div>
                         </div>
