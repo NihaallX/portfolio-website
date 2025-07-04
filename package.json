@@ -1,0 +1,17 @@
+{
+  "name": "nihal-portfolio",
+  "version": "1.0.0",
+  "description": "Nihal Pardeshi's AI/ML Portfolio Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Build complete'",
+    "start": "npx serve ."
+  },
+  "keywords": ["portfolio", "ai", "ml", "web"],
+  "author": "Nihal Pardeshi",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
