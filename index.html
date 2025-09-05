@@ -572,52 +572,56 @@
             </div>
         </div>
     </section>
-                                <div class="flex flex-col items-center">
-                                    <div class="skill-icon bg-gray-900/50 p-4 rounded-full mb-2 border border-gray-800 hover:border-[#00ff9d]">
-                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" class="w-12 h-12" alt="PyTorch">
-                                    </div>
-                                    <span class="text-sm">PyTorch</span>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="skill-icon bg-gray-900/50 p-4 rounded-full mb-2 border border-gray-800 hover:border-[#00b8ff]">
-                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" class="w-12 h-12" alt="TensorFlow">
-                                    </div>
-                                    <span class="text-sm">TensorFlow</span>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="skill-icon bg-gray-900/50 p-4 rounded-full mb-2 border border-gray-800 hover:border-[#00ff9d]">
-                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="w-12 h-12" alt="Docker">
-                                    </div>
-                                    <span class="text-sm">Docker</span>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="skill-icon bg-gray-900/50 p-4 rounded-full mb-2 border border-gray-800 hover:border-[#00b8ff]">
-                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" class="w-12 h-12" alt="R">
-                                    </div>
-                                    <span class="text-sm">R</span>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="skill-icon bg-gray-900/50 p-4 rounded-full mb-2 border border-gray-800 hover:border-[#00ff9d]">
-                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" class="w-12 h-12" alt="SQL">
-                                    </div>
-                                    <span class="text-sm">SQL</span>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="skill-icon bg-gray-900/50 p-4 rounded-full mb-2 border border-gray-800 hover:border-[#00b8ff]">
-                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-12 h-12" alt="HTML">
-                                    </div>
-                                    <span class="text-sm">HTML</span>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="skill-icon bg-gray-900/50 p-4 rounded-full mb-2 border border-gray-800 hover:border-[#00ff9d]">
-                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-12 h-12" alt="CSS">
-                                    </div>
-                                    <span class="text-sm">CSS</span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-        
+
+    <script>
+        // Particle system for background
+        function createParticles() {
+            const canvas = document.getElementById('particles');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    dx: (Math.random() - 0.5) * 0.5,
+                    dy: (Math.random() - 0.5) * 0.5,
+                    size: Math.random() * 2 + 1,
+                    opacity: Math.random() * 0.5 + 0.2
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.x += particle.dx;
+                    particle.y += particle.dy;
+
+                    if (particle.x < 0 || particle.x > canvas.width) particle.dx *= -1;
+                    if (particle.y < 0 || particle.y > canvas.height) particle.dy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(0, 255, 157, ${particle.opacity})`;
+                    ctx.fill();
+                });
+
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+
         // Initialize animations when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
@@ -666,6 +670,13 @@
                     scale: 0.5,
                     duration: 0.5,
                     delay: i * 0.05
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
                 });
             });
         });
